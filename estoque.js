@@ -25,14 +25,21 @@ function transacao(origem, destino, tipo, quantidade) {
     }
 
     if (origem === "pomar") {
-        const pessoa = estoque[origem];
-        for(let i=0; i<pessoa.length; i++) {
-            const monte = pessoa[i];
-            if(monte.tipo === tipo) {
-                monte.qtd += Math.max(quantidade, 0);
-            }
+        dePomarParaPessoa(destino, quantidade);
+    }
+}
+
+function dePomarParaPessoa(destino, quantidade) {
+    const pessoa = estoque[destino];
+    for(let i=0; i<pessoa.length; i++) {
+        const monte = pessoa[i];
+        if(monte.tipo === tipo) {
+            monte.qtd += Math.max(quantidade, 0);
+            return;
         }
     }
+    const novoMonte = {'tipo': tipo, 'qtd': Math.max(quantidade, 0)};
+    pessoa.push(novoMonte);
 }
 
 export {getEstoque, transacao};
