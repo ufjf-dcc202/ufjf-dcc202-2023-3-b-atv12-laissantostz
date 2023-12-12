@@ -29,6 +29,7 @@ function transacao(origem, destino, tipo, quantidade) {
     const pessoaDestino = estoque[destino];
     let monteOrigem;
     let monteDestino;
+
     for(let i=0; i< pessoaOrigem.length; i++) {
         const monte = pessoaOrigem[i];
         if(monte.tipo === tipo) {
@@ -36,7 +37,9 @@ function transacao(origem, destino, tipo, quantidade) {
             break;
         }
     }
-    if(!monteOrigem) { return; }
+
+    if(!monteOrigem || monteOrigem.qtd < quantidade) { return; }
+
     for(let i =0; i<pessoaDestino.length; i++) {
         const monte = pessoaDestino[i];
         if(monte.tipo === tipo) {
@@ -48,17 +51,20 @@ function transacao(origem, destino, tipo, quantidade) {
         monteDestino = {'tipo': tipo, 'qtd': 0};
         pessoaDestino.push(monteDestino);
     }
-    const qtdReal = Math.min(quantidade, monteOrigem.qtd);
-    monteDestino.qtd += qtdReal;
-    monteOrigem.qtd -= qtdReal;
+
+    //const qtdReal = Math.min(quantidade, monteOrigem.qtd);
+
+    monteDestino.qtd += quantidade;
+    monteOrigem.qtd -= quantidade;
 }
 
 function dePessoaParaPomar(origem, tipo, quantidade) {
     const pessoa = estoque[origem];
     for(let i=0; i<pessoa.length; i++) {
         const monte = pessoa[i];
-        if(monte.tipo === tipo) {
-            monte.qtd -= Math.min(quantidade, monte.qtd);
+        if(monte.tipo === tipo && monte.qtd >= quantidade) {
+            //monte.qtd -= Math.min(quantidade, monte.qtd);
+            monte.qtd -= quantidade;
             return;
         }
     }
@@ -70,12 +76,14 @@ function dePomarParaPessoa(destino, tipo, quantidade) {
     for(let i=0; i<pessoa.length; i++) {
         const monte = pessoa[i];
         if(monte.tipo === tipo) {
-            monte.qtd += Math.max(quantidade, 0);
+            //monte.qtd += Math.max(quantidade, 0);
+            monte.qtd += quantidade;
             return;
         }
     }
-    const novoMonte = {'tipo': tipo, 'qtd': Math.max(quantidade, 0)};
-    pessoa.push(novoMonte);
+    //const novoMonte = {'tipo': tipo, 'qtd': Math.max(quantidade, 0)};
+    //pessoa.push(novoMonte);
+    pessoa.push({'tipo': tipo, 'qtd': quantidade});
 }
 
 function limpaEstoque() {
