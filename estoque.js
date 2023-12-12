@@ -28,6 +28,7 @@ function transacao(origem, destino, tipo, quantidade) {
     const pessoaOrigem = estoque[origem];
     const pessoaDestino = estoque[destino];
     let monteOrigem;
+    let monteDestino;
     for(let i=0; i< pessoaOrigem.length; i++) {
         const monte = pessoaOrigem[i];
         if(monte.tipo === tipo) {
@@ -77,4 +78,11 @@ function dePomarParaPessoa(destino, tipo, quantidade) {
     pessoa.push(novoMonte);
 }
 
-export {getEstoque, transacao};
+function limpaEstoque() {
+    estoque = {
+        'joao': [],
+        'maria': []
+    }
+}
+
+export {getEstoque, transacao, limpaEstoque};
