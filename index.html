@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DCC202 - Atividade 12: Laís Santos Tomaz</title>
     <script src="main.js" type="module"></script>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1>DCC202 - Atividade 12: Laís Santos Tomaz</h1>
-        <p>Esta é a página principal que usa JavaScript para adicionar iteração.</p>
-        <section>
-            <form name="entrada">
-                <fieldset>
-                    <legend>Origem</legend>
-                    <label>
-                        <input type="radio" value="pomar" name="origem">
-                    </label>
-                    <label>
-                        <input type="radio" value="joao" name="origem">
-                    </label>
-                    <label>
-                        <input type="radio" value="maria" name="origem">
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <legend>Destino</legend>
-                    <label>
-                        <input type="radio" value="pomar" name="destino">
-                    </label>
-                    <label>
-                        <input type="radio" value="joao" name="destino">
-                    </label>
-                    <label>
-                        <input type="radio" value="maria" name="destino">
-                    </label>
-                </fieldset>
-                <select name="fruta">
-                    <option value="maca">Maçã</option>
-                    <option value="pera">Pera</option>
-                    <option value="banana">Banana</option>
-                </select>
-                <input type="number" name="quantidade" min="0" max="12" step="1" value="1">
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-        <section id="saida">
-            <h2>João</h2>
-            <ol id="joao"></ol>
-            <h2>Maria</h2>
-            <ol id="maria"></ol>
-        </section>
+      <h1>DCC202 - Atividade 12: Laís Santos Tomaz</h1>
+      <p>
+        Esta é a página principal que usa JavaScript para adicionar iteração.
+      </p>
+      <section>
+        <form name="entrada">
+          <fieldset>
+            <legend>Origem</legend>
+            <label>
+              Pomar
+              <input type="radio" value="pomar" name="origem" />
+            </label>
+            <label>
+              João
+              <input type="radio" value="joao" name="origem" />
+            </label>
+            <label>
+              Maria
+              <input type="radio" value="maria" name="origem" />
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Destino</legend>
+            <label>
+              Pomar
+              <input type="radio" value="pomar" name="destino" />
+            </label>
+            <label>
+              João
+              <input type="radio" value="joao" name="destino" />
+            </label>
+            <label>
+              Maria
+              <input type="radio" value="maria" name="destino" />
+            </label>
+          </fieldset>
+          <select name="fruta">
+            <option value="maca">Maçã</option>
+            <option value="pera">Pera</option>
+            <option value="banana">Banana</option>
+          </select>
+          <input
+            type="number"
+            name="quantidade"
+            min="0"
+            max="12"
+            step="1"
+            value="1"
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+      <section id="saida">
+        <h2>João</h2>
+        <ol id="joao"></ol>
+        <h2>Maria</h2>
+        <ol id="maria"></ol>
+      </section>
     </main>
-</body>
+  </body>
 </html>
