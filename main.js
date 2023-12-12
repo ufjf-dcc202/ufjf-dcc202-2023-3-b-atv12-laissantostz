@@ -28,10 +28,11 @@ function atualizaTela() {
 
  function preencheLista(lista, estoqueDaPessoa) {
     lista.innerHTML = "";
-    for (let i=0; i < estoque.estoqueDaPessoa.length; i++) {
-        const monte = estoque.estoqueDaPessoa[i];
+    for (let i=0; i < estoqueDaPessoa.length; i++) {
+        const monte = estoqueDaPessoa[i];
         const li = document.createElement('li');
         li.textContent = `${monte.tipo}: ${monte.qtd}`;
         lista.append(li);
     }
  }
+ 
