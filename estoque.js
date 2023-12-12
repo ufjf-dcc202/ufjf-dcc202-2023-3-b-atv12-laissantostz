@@ -16,12 +16,12 @@ function getEstoque() {
 function transacao(origem, destino, tipo, quantidade) {
     if (origem === destino){ return; }
     if (destino === "pomar") {
-        dePessoaParaPomar(origem, quantidade);
+        dePessoaParaPomar(origem, tipo, quantidade);
         return;
     }
 
     if (origem === "pomar") {
-        dePomarParaPessoa(destino, quantidade);
+        dePomarParaPessoa(destino, tipo, quantidade);
         return;
     }
 
@@ -64,7 +64,7 @@ function dePessoaParaPomar(origem, tipo, quantidade) {
 
 }
 
-function dePomarParaPessoa(destino, quantidade) {
+function dePomarParaPessoa(destino, tipo, quantidade) {
     const pessoa = estoque[destino];
     for(let i=0; i<pessoa.length; i++) {
         const monte = pessoa[i];
