@@ -9,6 +9,10 @@ botaoLimpar.addEventListener('click', limparListas);
 
 atualizaTela();
 
+function resetarFormulario() {
+    document.entrada.reset();
+}
+
 function leFormulario(event) {
     event.preventDefault();
     const quantidade = document.entrada.quantidade.valueAsNumber;
@@ -20,7 +24,7 @@ function leFormulario(event) {
 
     transacao(origem, destino, fruta, quantidade);
     atualizaTela();
-    // document.entrada.submit();
+    resetarFormulario();
 }
 
 function atualizaTela() {
