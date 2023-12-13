@@ -1,9 +1,11 @@
-import { getEstoque, transacao } from "./estoque.js";
+import { getEstoque, limpaEstoque, transacao } from "./estoque.js";
 
 const olJoao = document.querySelector('#joao');
 const olMaria = document.querySelector('#maria');
+const botaoLimpar = document.querySelector('#limpar');
 
 document.entrada.addEventListener('submit', leFormulario);
+botaoLimpar.addEventListener('click', limparListas);
 
 atualizaTela();
 
@@ -35,5 +37,10 @@ function atualizaTela() {
         li.textContent = `${monte.tipo}: ${monte.qtd}`;
         lista.append(li);
     }
+ }
+
+ function limparListas() {
+    limpaEstoque();
+    atualizaTela();
  }
  
